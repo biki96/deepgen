@@ -1,3 +1,11 @@
+## Down load VLM and DiT Module
+| Model        | Download Link                                                |
+| ---------- | ------------------------------------------------------------ |
+| Qwen2.5-VL-3B | https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct |
+| UniPic2-SD3.5M-Kontext-2B | https://huggingface.co/Skywork/UniPic2-SD3.5M-Kontext-2B |
+put them in `model_zoo`
+
+
 ## Joint training
 ### DeepGen_SCB
 

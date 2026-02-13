@@ -40,7 +40,7 @@ Shanghai Innovation Institute, DeepGen Team
 
 ## ✨ Introduction
 **Broader Scenario and Dimension Coverage**
-We propose DeepGen 1.0, a lightweight unified multimodal model with only 5B parameters (3B VLM + 2B DiT). It integrates five core capabilities—general image generation, general image editing, reasoning image generation, reasoning image editing, and text rendering—within a single model. Across multiple authoritative benchmarks, DeepGen 1.0 is competitive with competitive with or surpassing the state-of-the-art unified multimodal models that are 3× to 16× larger, achieving comprehensive performance, demonstrating that massive scaling is not the sole path to high-performance multimodal generation.
+We propose DeepGen 1.0, a lightweight unified multimodal model with only 5B parameters (3B VLM + 2B DiT). It integrates five core capabilities: general image generation, general image editing, reasoning image generation, reasoning image editing, and text rendering—within a single model. Across multiple authoritative benchmarks, DeepGen 1.0 is competitive with or surpassing the state-of-the-art unified multimodal models that are 3× to 16× larger, achieving comprehensive performance, demonstrating that massive scaling is not the sole path to high-performance multimodal generation.
 
 <p align="center"><img src="figure/bubble_chart.png" width="95%"></p>
 
@@ -49,7 +49,7 @@ We propose DeepGen 1.0, a lightweight unified multimodal model with only 5B para
 
 ## 🧠 Method
 Our core observation is that a lightweight model, when empowered by synergistic architecture design and data-centric training strategies, can achieve comprehensive capabilities competitive with or even surpassing much larger counterparts.
-To overcome the limitations of lightweight models in semantic understanding and fine-grained control, we introduce **Stacked Channel Bridging (SCB)**, a deep alignment framework that extracts hierarchical features from multiple VLM layers and fuses them with learnable ``think tokens'' to provide the generative backbone with structured, reasoning-rich guidance. 
+To overcome the limitations of lightweight models in semantic understanding and fine-grained control, we introduce **Stacked Channel Bridging (SCB)**, a deep alignment framework that extracts hierarchical features from multiple VLM layers and fuses them with learnable "think tokens" to provide the generative backbone with structured, reasoning-rich guidance. 
 We further design a data-centric training strategy spanning three progressive stages: (1) **Alignment Pre-training** on large-scale image-text pairs and editing triplets to synchronize VLM and DiT representations, (2) **Joint Supervised Fine-tuning** on a high-quality mixture of generation, editing, and reasoning tasks to foster omni-capabilities, and (3) **Reinforcement Learning with MR-GRPO**, which leverages a mixture of reward functions and supervision signals, resulting in substantial gains in generation quality and alignment with human preferences, while maintaining stable training progress and avoiding visual artifacts.
 
 <p align="center"><img src="figure/arch.png" width="80%"></p>
@@ -143,6 +143,12 @@ dywang24@m.fudan.edu.cn, wjqdev@gmail.com
 
 ## ⭐ Citation
 ```bibtex
+@article{wang2026deepgen10alightweightunified,
+  title   = {DeepGen 1.0: A Lightweight Unified Multimodal Model for Advancing Image Generation and Editing},
+  author  = {Dianyi Wang and Ruihang Li and Feng Han and Chaofan Ma and Wei Song and Siyuan Wang and Yibin Wang and Yi Xin and Hongjian Liu and Zhixiong Zhang and Shengyuan Ding and Tianhang Wang and Zhenglin Cheng and Tao Lin and Cheng Jin and Kaicheng Yu and Jingjing Chen and Wenjie Wang and Zhongyu Wei and Jiaqi Wang},
+  year    = {2026},
+  journal = {arXiv preprint arXiv: 2602.12205}
+}
 ```
 
 ## 🙏 Acknowledgement

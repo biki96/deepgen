@@ -47,6 +47,7 @@ for last hidden condition for DiT variant are `deepgen_joint_sft` and `deepgen_j
 | model.num_queries       | `128`                                       | 
 | model.use_activation_checkpointing     | `False`                                       |
 | model.freeze_transformer     |  whether DiT freeze during training, set `False`  when sft                                     | 
-| model.lora_modules     | whether VLM utilize lora tuning, set `auto`  when sft                                       | 
+| model.lora_modules     | whether VLM utilize lora tuning, set `auto`  when sft, `model.lora_rank = 64` and `model.lora_alpha = 128`                                       | 
 
 ## model config
+**`configs/models/deepgen_scb.py`** for SCB , **`configs/models/deepgen.py`** for last hidden

@@ -16,7 +16,7 @@ The open-source T2I SFT datasets we used are below:
 | Echo-4o-Image | https://huggingface.co/datasets/Yejy53/Echo-4o-Image |
 | UniReason-T2I | https://huggingface.co/datasets/Alex11556666/Reason_Tuning |
 
-the banana-50k and text rendering data we will upload in[DeepGen Data](https://huggingface.co/datasets/deepgenteam/deepgen_SFT) soon.
+the banana-50k and text rendering data we will upload in[DeepGen Data](https://huggingface.co/datasets/DeepGenTeam/DeepGen-1.0) soon.
 
 We have refactored the dataloader code so that data for any task can be passed through JSON files. After downloading the dataset, ensure that the text prompts are processed into JSON format, the specific format is as follows:
 

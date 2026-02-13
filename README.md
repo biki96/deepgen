@@ -38,24 +38,22 @@ Shanghai Innovation Institut, DeepGen Team
 
 
 
-## Introduction
+## ✨ Introduction
+**Broader Scenario and Dimension Coverage**
+We propose DeepGen 1.0, a lightweight unified multimodal model with only 5B parameters (3B VLM + 2B DiT). It integrates five core capabilities—general image generation, general image editing, reasoning image generation, reasoning image editing, and text rendering—within a single model. Across multiple authoritative benchmarks, DeepGen 1.0 is competitive with competitive with or surpassing the state-of-the-art unified multimodal models that are 3× to 16× larger, achieving comprehensive performance, demonstrating that massive scaling is not the sole path to high-performance multimodal generation.
 
-We propose <b>Deepgen</b>.
-
-
-<!-- <img   alt="image" src="docs/static/images/teaser.png" />
-
-<img alt="image" src="docs/static/images/radar.png" /> -->
-
-### ✨ Highlights:
-
-- **Broader Scenario and Dimension Coverage**:
+<p align="center"><img src="figure/bubble_chart.png" width="95%"></p>
 
 
-<!-- <img alt="image" src="docs/static/images/motivation_tab.png" />
-<img alt="image" src="docs/static/images/motivation_fig_new.png" />
 
-<img alt="image" src="docs/static/images/testpoint_cases.png" /> -->
+
+## 🧠 Method
+Our core observation is that a lightweight model, when empowered by synergistic architecture design and data-centric training strategies, can achieve comprehensive capabilities competitive with or even surpassing much larger counterparts.
+To overcome the limitations of lightweight models in semantic understanding and fine-grained control, we introduce **Stacked Channel Bridging (SCB)**, a deep alignment framework that extracts hierarchical features from multiple VLM layers and fuses them with learnable ``think tokens'' to provide the generative backbone with structured, reasoning-rich guidance. 
+We further design a data-centric training strategy spanning three progressive stages: (1) **Alignment Pre-training** on large-scale image-text pairs and editing triplets to synchronize VLM and DiT representations, (2) **Joint Supervised Fine-tuning** on a high-quality mixture of generation, editing, and reasoning tasks to foster omni-capabilities, and (3) **Reinforcement Learning with MR-GRPO**, which leverages a mixture of reward functions and supervision signals, resulting in substantial gains in generation quality and alignment with human preferences, while maintaining stable training progress and avoiding visual artifacts.
+
+<p align="center"><img src="figure/arch.png" width="80%"></p>
+
 
 ## 🔥 Set Up Environment
 ```

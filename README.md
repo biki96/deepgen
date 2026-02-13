@@ -59,13 +59,17 @@ We further design a data-centric training strategy spanning three progressive st
 
 ### Set up environment
 ```bash
-https://github.com/deepgenteam/deepgen.git
+git clone https://github.com/deepgenteam/deepgen.git
 cd deepgen
 conda create -n deepgen python=3.10 -y
 conda activate deepgen
 pip install -r requirements.txt
 pip install flash_attn==2.8.3 --no-build-isolation
 ```
+### Data Prepare
+We provide the scripts for Interleaved Reasoning Tuning.
+```bash
+bash scripts/sft.sh
 
 ### Train
 We provide the scripts for Interleaved Reasoning Tuning.

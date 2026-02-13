@@ -67,7 +67,7 @@ pip install -r requirements.txt
 pip install flash_attn==2.8.3 --no-build-isolation
 ```
 ### Data Prepare
-Please See [DATA](DATA.md) for more details.
+Please See [DATA](DATA.md) for more details. We provide a detailed description of the data download and usage procedures for both the Pre-traning stage and the Supervised Fine-Tuning stage.
 
 ### Train
 We provide the scripts for Interleaved Reasoning Tuning.

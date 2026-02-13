@@ -147,4 +147,17 @@ dywang24@m.fudan.edu.cn, wjqdev@gmail.com
 
 ## 🙏 Acknowledgement
 The project builds upon the following pioneering works:
-
+- [OpenUni](https://arxiv.org/abs/2505.23661): We thank the OpenUni releasing the elegant and concise code and pretrain dataset.
+- [UniPic2-SD3.5M-Kontext-2B](https://huggingface.co/Skywork/UniPic2-SD3.5M-Kontext-2B): We use UniPic2-SD3.5M-Kontext-2B as our diffusion module, considering its efficiency and strong performance on both t2i and editing.
+- [UnifiedReward-Think](https://github.com/CodeGoat24/UnifiedReward): We use UnifiedReward-Think as our reward model for RL, considering its strong performance.
+- [Qwen2.5 VL](https://arxiv.org/abs/2502.13923): We useQwen2.5 VL-3B as our VLM module, considering its efficiency and strong performance on multimodal understanding abilities.
+- [BLIP3-o](https://github.com/JiuhaiChen/BLIP3o): We thank the BLIP3-o team for releasing the precious high-quality tuning dataset.
+- [OpenGPT-4o-Image](https://arxiv.org/abs/2509.24900): We thank the OpenGPT-4o-Image team for releasing the precious high-quality tuning dataset.
+- [ShareGPT-4o-Image](https://arxiv.org/abs/2506.18095): We thank the ShareGPT-4o-Image team for releasing the precious high-quality tuning dataset.
+- [Echo-4o](https://arxiv.org/abs/2508.09987): We thank the Echo-4o team for releasing the precious high-quality tuning dataset.
+- [OmniGen2](https://github.com/VectorSpaceLab/OmniGen2): We thank the OmniGen2 team for releasing the precious high-quality editing tuning dataset and code.
+- [Uniworld-V1](https://github.com/PKU-YuanGroup/UniWorld): We thank the Uniworld team for releasing the precious high-quality tuning dataset and code.
+- [Picobanana](https://github.com/apple/pico-banana-400k): We thank the Picobanana team for releasing the precious high-quality editing tuning dataset.
+- [Nano-consist](https://huggingface.co/datasets/Yejy53/Nano-consistent-150k): We thank the Nano-consist team for releasing the precious high-quality editing tuning dataset.
+- [NHR-edit](https://huggingface.co/datasets/iitolstykh/NHR-Edit): We thank the NHR-edit team for releasing the precious high-quality editing tuning dataset.
+- [UniREditBench](https://maplebb.github.io/UniREditBench/): We thank the UniREditBench team for releasing the precious high-quality reason-based editing tuning dataset.

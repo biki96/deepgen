@@ -4,12 +4,13 @@
   <img src="figure/logo.png" alt="DeepGen" width="450"/ hei>
 </p>
 
-<div align="center">
-    <h1 align="center">DeepGen 1.0: A Lightweight Unified Multimodal
+<h1 align="center">DeepGen 1.0: A Lightweight Unified Multimodal
 Model for Advancing Image Generation and Editing
-    </h1>
+</h1>
 
+<p align="center">
 Shanghai Innovation Institut, DeepGen Team
+</p>
 
 <p align="center">
 <a href="https://arxiv.org/abs/2506.09040">

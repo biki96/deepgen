@@ -59,4 +59,4 @@ for last hidden condition for DiT variant are `deepgen_joint_sft` and `deepgen_j
 | model.lora_modules     | whether VLM utilize lora tuning, set `auto`  when sft, `model.lora_rank = 64` and `model.lora_alpha = 128`                                       | 
 
 ## model config
-**`configs/models/deepgen_scb.py`** for SCB , **`configs/models/deepgen.py`** for last hidden
+**`configs/models/deepgen_scb.py`** for SCB , **`configs/models/deepgen.py`** for last hidden, also can  merge you own model in `.src/models` and add model config in `.configs/models` to support customized training

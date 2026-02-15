@@ -1,5 +1,6 @@
 ## Evaluation
 For now we only provide inference code, please turn to the official repos of the benchmarks to calculate final performance.
+the `/path/to/your/ckpt` can be both `.pth folder` or `.pt file`
 
 ### GenEval
 - See [GenEval](https://github.com/djghosh13/geneval/tree/main) for original GenEval prompts and put in evaluation/geneval

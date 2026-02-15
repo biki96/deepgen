@@ -29,7 +29,7 @@ if __name__ == "__main__":
     # parser.add_argument('config', help='log file path.')
     parser.add_argument("--checkpoint", type=str, default=None)
     parser.add_argument("--prompt", type=str, default='Using the red color, draw one continuous path from the green start to the red end along walkable white cells only. Do not cross walls.')
-    parser.add_argument("--src_img", type=str,default='/inspire/qb-ilm/project/deepgen/public/UniREditBench/original_image/maze/1.png')
+    parser.add_argument("--src_img", type=str,default='UniREditBench/original_image/maze/1.png')
     parser.add_argument("--cfg_prompt", type=str, default="blurry, low quality, low resolution, distorted, deformed, broken content, missing parts, damaged details, artifacts, glitch, noise, pixelated, grainy, compression artifacts, bad composition, wrong proportion, incomplete editing, unfinished, unedited areas.")
     parser.add_argument("--cfg_scale", type=float, default=4.0)
     parser.add_argument('--num_steps', type=int, default=50)

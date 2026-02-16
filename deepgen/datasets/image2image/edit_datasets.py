@@ -1,8 +1,8 @@
 import torch
 import numpy as np
 from einops import rearrange
-from src.datasets.utils import crop2square
-from src.datasets.text2image.caption_datasets import CaptionDataset
+from deepgen.datasets.utils import crop2square
+from deepgen.datasets.text2image.caption_datasets import CaptionDataset
 from PIL import Image
 import os
 

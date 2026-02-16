@@ -1,7 +1,7 @@
 import argparse
 import os
 
-from src.pipelines import DeepGenPipeline
+from deepgen.pipelines import DeepGenPipeline
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -24,8 +24,7 @@ if __name__ == "__main__":
 
     pipe = DeepGenPipeline(checkpoint=args.checkpoint, seed=args.seed)
 
-    if pipe.accelerator.is_main_process:
-        os.makedirs(args.output, exist_ok=True)
+    os.makedirs(args.output, exist_ok=True)
 
     images = pipe.text2image(
         prompt=args.prompt,

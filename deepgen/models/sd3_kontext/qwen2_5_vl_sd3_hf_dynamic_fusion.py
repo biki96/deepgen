@@ -6,12 +6,12 @@ import torch.nn.functional as F
 from torch.nn.modules.module import T
 import torch.distributed as dist
 from mmengine.logging import print_log
-from src.models.connector import ConnectorConfig, ConnectorEncoder
+from deepgen.models.connector import ConnectorConfig, ConnectorEncoder
 from xtuner.model.utils import guess_load_checkpoint
 from xtuner.registry import BUILDER
 from diffusers.training_utils import compute_density_for_timestep_sampling, compute_loss_weighting_for_sd3
 from peft import LoraConfig
-from src.models.sd3_kontext.pipeline_stable_diffusion_3_dynamic import StableDiffusion3Pipeline, calculate_shift
+from deepgen.models.sd3_kontext.pipeline_stable_diffusion_3_dynamic import StableDiffusion3Pipeline, calculate_shift
 from mmengine.model import BaseModel
 from functools import partial
 from six.moves import map, zip
@@ -65,7 +65,7 @@ class Qwen2p5VLStableDiffusion3HF(BaseModel):
                  res_vit=False,
                  pretrained_pth=None,
                  use_activation_checkpointing=False,
-                 lora_modules='auto',  # ["to_k", "to_q", "to_v", "to_out.0"], 'auto'
+                 lora_modules='auto',  
                  lora_rank=64,
                  lora_alpha=128,
                  freeze_transformer=True,
@@ -111,7 +111,7 @@ class Qwen2p5VLStableDiffusion3HF(BaseModel):
         self.connector = ConnectorEncoder(ConnectorConfig(**connector))
 
 
-        self.projector_1 = nn.Linear(self.llm.config.hidden_size, self.connector.config.hidden_size)
+        self.projector_1 = nn.Linear(self.llm.config.hidden_size*6, self.connector.config.hidden_size)
         self.projector_2 = nn.Linear(self.connector.config.hidden_size, self.transformer.config.pooled_projection_dim)
         self.projector_3 = nn.Linear(self.connector.config.hidden_size, self.transformer.config.joint_attention_dim)
 
@@ -160,6 +160,7 @@ class Qwen2p5VLStableDiffusion3HF(BaseModel):
             pretrained_state_dict = guess_load_checkpoint(pretrained_pth)
             info = self.load_state_dict(pretrained_state_dict, strict=False)
             print_log(f'Load pretrained weight from {pretrained_pth}')
+
 
         self.ema_cfg = ema_cfg
         if ema_cfg is not None:
@@ -467,11 +468,20 @@ class Qwen2p5VLStableDiffusion3HF(BaseModel):
         output = self.llm(inputs_embeds=inputs_embeds,
                           attention_mask=attention_mask,
                           position_ids=position_ids,
+                          output_hidden_states=True,
                           return_dict=True)
 
-        # hidden_states = output.last_hidden_state[:, -self.num_queries:]#query only
-        hidden_states = output.last_hidden_state
-        pooled_out, seq_out = self.llm2dit(hidden_states)
+        hidden_states = output.hidden_states
+        num_layers = len(hidden_states) - 1  # excpet embedding
+
+
+        selected_layers = list(range(num_layers - 1, 0, -6))
+        # [-2, -8, -14, ...]
+
+        
+        selected_hiddens = [hidden_states[i] for i in selected_layers]
+        merged_hidden = torch.cat(selected_hiddens, dim=-1)
+        pooled_out, seq_out = self.llm2dit(merged_hidden)
 
         loss_diff = self.diff_loss(model_input=image_latents,
                                    pooled_prompt_embeds=pooled_out,
@@ -516,17 +526,28 @@ class Qwen2p5VLStableDiffusion3HF(BaseModel):
         output = self.llm(inputs_embeds=inputs_embeds,
                           attention_mask=attention_mask,
                           position_ids=position_ids,
+                          output_hidden_states = True,
                           return_dict=True)
 
-        # hidden_states = output.last_hidden_state[:, -self.num_queries:] #query only
-        hidden_states = output.last_hidden_state
+        
+        hidden_states = output.hidden_states
+        num_layers = len(hidden_states) - 1  # except embedding
+
+        
+        selected_layers = list(range(num_layers - 1, 0, -6))
+        # [-2, -8, -14, ...]
+     
+
+        
+        selected_hiddens = [hidden_states[i] for i in selected_layers]
+        merged_hidden = torch.cat(selected_hiddens, dim=-1)
+        pooled_out, seq_out = self.llm2dit(merged_hidden)
 
         # if res_vit:
         #     image_embeds=torch.cat(image_embeds)
         #     hidden_states[input_ids == self.image_token_id] = 0.5 * (hidden_states[input_ids == self.image_token_id]) + 0.5 * (image_embeds.contiguous().view(-1, self.llm.config.hidden_size))
 
 
-        pooled_out, seq_out = self.llm2dit(hidden_states)
 
 
         loss_diff = self.diff_loss(model_input=image_latents,
@@ -573,11 +594,22 @@ class Qwen2p5VLStableDiffusion3HF(BaseModel):
         hidden_states = self.meta_queries[None].expand(2*b, self.num_queries, -1)
         inputs = self.prepare_forward_input(query_embeds=hidden_states, **text_inputs)
 
-        output = self.llm(**inputs, return_dict=True)
+        output = self.llm(**inputs, return_dict=True,output_hidden_states = True)
 
-        # hidden_states = output.last_hidden_state[:, -self.num_queries:] #query only
-        hidden_states = output.last_hidden_state 
-        pooled_out, seq_out = self.llm2dit(hidden_states)
+         
+        hidden_states = output.hidden_states
+        num_layers = len(hidden_states) - 1  
+
+        
+        selected_layers = list(range(num_layers - 1, 0, -6))
+        
+     
+
+        
+        selected_hiddens = [hidden_states[i] for i in selected_layers]
+        merged_hidden = torch.cat(selected_hiddens, dim=-1)
+        pooled_out, seq_out = self.llm2dit(merged_hidden)
+    
 
         pipeline = StableDiffusion3Pipeline(
             transformer=self.transformer,

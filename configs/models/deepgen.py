@@ -1,8 +1,8 @@
 import torch
-from src.models.sd3_kontext.qwen2_5_vl_sd3_hf_dynamic import Qwen2p5VLStableDiffusion3HF
+from deepgen.models.sd3_kontext.qwen2_5_vl_sd3_hf_dynamic import Qwen2p5VLStableDiffusion3HF
 from diffusers import FlowMatchEulerDiscreteScheduler, AutoencoderKL
 from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer
-from src.models.sd3_kontext.transformer_sd3_dynamic import SD3Transformer2DModel
+from deepgen.models.sd3_kontext.transformer_sd3_dynamic import SD3Transformer2DModel
 
 
 sd3_5_model_name_or_path = "model_zoo/UniPic2-SD3.5M-Kontext-2B"

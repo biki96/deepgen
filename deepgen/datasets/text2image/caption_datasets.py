@@ -14,7 +14,7 @@ except:
         Client = None
 from glob import glob
 from xtuner.registry import BUILDER
-from src.datasets.utils import crop2square, resize_image_fix_pixels, resize_image_dynamic
+from deepgen.datasets.utils import crop2square, resize_image_fix_pixels, resize_image_dynamic
 from einops import rearrange
 import numpy as np
 

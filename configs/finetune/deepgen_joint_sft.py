@@ -3,7 +3,7 @@ from mmengine.hooks import (CheckpointHook, DistSamplerSeedHook, IterTimerHook,
                             LoggerHook, ParamSchedulerHook)
 from mmengine.optim import AmpOptimWrapper, CosineAnnealingLR, LinearLR
 from xtuner.engine.runner import TrainLoop
-from src.optimisers.custom_adamw import CustomAdamW
+from deepgen.optimisers.custom_adamw import CustomAdamW
 # from torch.optim import AdamW
 
 with read_base():

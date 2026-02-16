@@ -2,8 +2,8 @@ import torch
 from diffusers import AutoencoderKL, FlowMatchEulerDiscreteScheduler
 from transformers import AutoTokenizer, Qwen2_5_VLForConditionalGeneration
 
-from src.models.sd3_kontext.qwen2_5_vl_sd3_hf_dynamic_fusion import Qwen2p5VLStableDiffusion3HF
-from src.models.sd3_kontext.transformer_sd3_dynamic import SD3Transformer2DModel
+from deepgen.models.sd3_kontext.qwen2_5_vl_sd3_hf_dynamic_fusion import Qwen2p5VLStableDiffusion3HF
+from deepgen.models.sd3_kontext.transformer_sd3_dynamic import SD3Transformer2DModel
 
 sd3_5_model_name_or_path = "Skywork/UniPic2-SD3.5M-Kontext-2B"
 qwen2_5_vl_model_name_or_path = "Qwen/Qwen2.5-VL-3B-Instruct"

@@ -1,8 +1,8 @@
-from src.datasets.collate_functions import collate_func_img2img_txt_dynamic
+from deepgen.datasets.collate_functions import collate_func_img2img_txt_dynamic
 from mmengine.config import read_base
 from mmengine.dataset import InfiniteSampler
 from xtuner.dataset import ConcatDataset
-from src.datasets.image2image.edit_datasets import ImageEditDataset, ReconstructDataset
+from deepgen.datasets.image2image.edit_datasets import ImageEditDataset, ReconstructDataset
 from PIL import Image
 with read_base():
     from .processors import image_size, image_process

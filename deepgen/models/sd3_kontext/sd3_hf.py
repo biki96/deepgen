@@ -9,7 +9,7 @@ from mmengine.logging import print_log
 from xtuner.model.utils import guess_load_checkpoint
 from diffusers.training_utils import compute_density_for_timestep_sampling, compute_loss_weighting_for_sd3
 from peft import LoraConfig
-from src.models.sd3_kontext.pipeline_stable_diffusion_3 import StableDiffusion3Pipeline
+from deepgen.models.sd3_kontext.pipeline_stable_diffusion_3 import StableDiffusion3Pipeline
 from mmengine.model import BaseModel
 
 

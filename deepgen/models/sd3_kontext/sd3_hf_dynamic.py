@@ -1,8 +1,8 @@
 import random
 import torch
 import math
-from src.models.sd3_kontext.pipeline_stable_diffusion_3_dynamic import StableDiffusion3Pipeline, calculate_shift
-from src.models.sd3_kontext.sd3_hf import StableDiffusion3HF
+from deepgen.models.sd3_kontext.pipeline_stable_diffusion_3_dynamic import StableDiffusion3Pipeline, calculate_shift
+from deepgen.models.sd3_kontext.sd3_hf import StableDiffusion3HF
 from diffusers.training_utils import compute_density_for_timestep_sampling, compute_loss_weighting_for_sd3
 
 

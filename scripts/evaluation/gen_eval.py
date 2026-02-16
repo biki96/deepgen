@@ -11,7 +11,7 @@ from accelerate import Accelerator
 from accelerate.utils import gather_object
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image
-from src.datasets.utils import load_jsonl
+from deepgen.datasets.utils import load_jsonl
 from einops import rearrange
 import inflect
 from peft import PeftModel

@@ -1,7 +1,7 @@
-from src.datasets.collate_functions import (collate_func_img2img_txt_dynamic,
+from deepgen.datasets.collate_functions import (collate_func_img2img_txt_dynamic,
                                             collate_func_gen_txt_dynamic, CollateConcat)
 from mmengine.config import read_base
-from src.datasets.samplers.multi_source_sampler import MultiSourceSampler, MultiSourceBatchSampler
+from deepgen.datasets.samplers.multi_source_sampler import MultiSourceSampler, MultiSourceBatchSampler
 
 from xtuner.dataset import ConcatDataset
 

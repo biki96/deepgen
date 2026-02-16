@@ -26,7 +26,7 @@ from xtuner.tools.utils import (auto_dtype_of_deepspeed_config,
                                 get_seed_from_checkpoint)
 
 from mmengine.registry import OPTIM_WRAPPER_CONSTRUCTORS, RUNNERS
-from src.runners.custom_runner import CustomRunner
+from deepgen.runners.custom_runner import CustomRunner
 RUNNERS.register_module(name='CustomRunner', module=CustomRunner)
 
 

@@ -1,8 +1,8 @@
-from src.datasets.collate_functions import collate_func_gen_txt_dynamic
+from deepgen.datasets.collate_functions import collate_func_gen_txt_dynamic
 from mmengine.config import read_base
 from mmengine.dataset import InfiniteSampler
 from xtuner.dataset import ConcatDataset
-from src.datasets.text2image.blip3_o import BLIP3oDataset
+from deepgen.datasets.text2image.blip3_o import BLIP3oDataset
 
 
 

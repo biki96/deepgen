@@ -8,13 +8,10 @@ version = "0.1.0"
 description = "DeepGen-RL: Reward-Driven Reinforcement Learning for Generative AI"
 requires-python = ">=3.12"
 dependencies = [
-    "accelerate>=1.12.0",
-    "deepspeed>=0.18.6",
-    "einops>=0.8.2",
     "mmengine>=0.10.7",
     "torch>=2.8.0,<2.10",
     "xtuner>=0.1.23",
-    "transformers>=4.56.1, <5",
+    "transformers>=4.56.1,<5",
     "diffusers>=0.36.0",
     "flash-attn>=2.8.3",
 ]
@@ -27,7 +24,7 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["src", "src.*"]
+include = ["deepgen", "deepgen.*"]
 
 [tool.ruff]
 target-version = "py312"
@@ -48,7 +45,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["src"]
+known-first-party = ["deepgen"]
 
 [tool.ruff.format]
 quote-style = "double"

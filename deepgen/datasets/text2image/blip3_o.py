@@ -1,6 +1,6 @@
 import torch
 import os
-from src.datasets.text2image.caption_datasets import CaptionDataset
+from deepgen.datasets.text2image.caption_datasets import CaptionDataset
 from PIL import Image
 
 class BLIP3oDataset(CaptionDataset):

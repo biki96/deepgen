@@ -1,17 +1,21 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import torch
 from mmengine.config import Config
 from PIL import Image
 from xtuner.registry import BUILDER
 
+_DEFAULT_CONFIG = str(Path(__file__).resolve().parent.parent / "configs" / "deepgen_scb.py")
+
 
 class DeepGenPipeline:
     def __init__(
         self,
         checkpoint: str | None = None,
-        config_path: str = "configs/models/deepgen_scb.py",
+        config_path: str = _DEFAULT_CONFIG,
         device: str = "cuda",
         seed: int = 42,
     ):

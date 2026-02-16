@@ -14,8 +14,10 @@ dependencies = [
     "xtuner>=0.1.23",
     "transformers>=4.56.1,<5",
     "diffusers>=0.36.0",
-    "flash-attn>=2.8.3",
 ]
+
+[project.optional-dependencies]
+flash = ["flash-attn>=2.8.3"]
 
 [dependency-groups]
 dev = [
